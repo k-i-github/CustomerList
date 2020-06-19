@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-  Route::get('customer/menu', 'Admin\CustomerController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+  Route::get('customer/menu', 'Admin\CustomerController@menu');
+
+  Route::get('customer/create', 'Admin\CustomerController@add');
+  Route::post('customer/create', 'Admin\CustomerController@create');
 });
 
 Auth::routes();

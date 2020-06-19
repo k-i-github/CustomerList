@@ -8,9 +8,14 @@ use App\Http\Controllers\Controller;
 class CustomerController extends Controller
 {
     //
-    public function add()
+    public function menu()
     {
       return view('admin.customer.menu');
+    }
+
+    public function add()
+    {
+      return view ('admin.customer.create');
     }
 
     public function create(Request $request)
