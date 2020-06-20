@@ -41,7 +41,7 @@
             <label class="col-md-2">分類</label>
               <div class="col-md-10">
                 <div class="dropdown dropright">
-                  <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                  <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" name="classification"
                           aria-haspopup="true" aria-expanded="false">分類</button>
                   <div class="dropdown-menu" aria-labelledby="dropdown1">
                     <a class="dropdown-item" href="#">A</a>

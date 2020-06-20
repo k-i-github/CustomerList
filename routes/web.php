@@ -20,6 +20,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
   Route::get('customer/create', 'Admin\CustomerController@add');
   Route::post('customer/create', 'Admin\CustomerController@create');
+
+  Route::get('customer', 'Admin\CustomerController@index');
 });
 
 Auth::routes();
