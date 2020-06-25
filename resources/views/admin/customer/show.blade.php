@@ -1,32 +1,21 @@
 @extends('layouts.admin')
-@section('title', '顧客一覧')
+@section('title', '顧客詳細')
 
 @section('content')
   <div class="container">
     <div class="row">
-      <h2>顧客一覧</h2>
+      <h2>顧客詳細</h2>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="{{ action('Admin\CustomerController@add') }}" role="button" class="btn btn-primary">新規顧客追加</a>
+        <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
       </div>
-        <div class="col-md-8">
-          <form action="{{ action('Admin\CustomerController@index') }}" method="get">
-            <div class="form-group row">
-              <label class="col-md-2">名前　検索</label>
-              <div class="col-md-8">
-                <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
-              </div>
-
-              <div class="col-md-2">
-                {{ csrf_field() }}
-                <input type="submit" class="btn btn-primary" value="検索">
-              </div>
-            </div>
-          </form>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <a href="{{ action('Admin\CustomerController@edit', ['id' => $posts->id]) }}" role="button" class="btn btn-primary">編集</a>
       </div>
-
+    </div>
       <div class="row">
         <div class="list-customer col-md-12 mx-auto">
           <div class="row">
@@ -50,11 +39,6 @@
                     <td>{{ $customer->classification }}</td>
                     <td>{{ $customer->staff }}</td>
                     <td>{{ $customer->bottle }}</td>
-                    <td>
-                      <div>
-                        <a href="{{ action('Admin\CustomerController@show', ['id' => $customer->id]) }}">詳細</a>
-                      </div>
-                    </td>
                   </tr>
                 @endforeach
               </tbody>
@@ -62,6 +46,12 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+        <div class="card">
+          <p class="card-text">{{ $customer->note }}</p>
+        </div>
+      </div>
+      </div>
     </div>
-
 @endsection

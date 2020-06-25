@@ -16,7 +16,7 @@ class CreateCustomerTable extends Migration
         Schema::create('customer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name'); //名前
-            $table->string('gender');　//性別
+            $table->string('gender'); //性別
             $table->string('classification')->nullable(); //分類
             $table->string('staff')->nullable(); //担当
             $table->string('bottle')->nullable(); // ボトル
