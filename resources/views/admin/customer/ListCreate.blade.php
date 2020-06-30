@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12 mx-auto">
         <h2>来店リスト追加</h2>
-        <form action="{{ action('Admin\CustomerController@create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('Admin\CustomerController@li_create') }}" method="post" enctype="multipart/form-data">
           @if (count($errors) > 0)
             <ul>
               @foreach($errors->all() as $e)
@@ -21,8 +21,9 @@
             </div>
           </div>
 
+          <div class="form-group row">
           <div class="table-responsive">
-            <form method="post" action="form.php">
+
             <table class="table table-bordered">
               <thead>
                   <tr>
@@ -42,18 +43,18 @@
               </thead>
               <tbody>
                   <tr>
-                      <td></td>
+                      <td><input type="text" class="form-control" name="classification" value="{{ old('classification') }}"></td>
                       <td>1</td>
-                      <td><input type="time" style=border:none;></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><input type="time" class="form-control" name="time" value="{{ old('time') }}"></td>
+                      <td><input type="text" class="form-control" name="visitor" value="{{ old('visitor') }}"></td>
+                      <td><input type="text" class="form-control" name="clientlist_1" value="{{ old('clientlist_1') }}"></td>
+                      <td><input type="text" class="form-control" name="customer_name_1" value="{{ old('customer_name_1') }}"></td>
+                      <td><input type="text" class="form-control" name="men" value="{{ old('men') }}"></td>
+                      <td><input type="text" class="form-control" name="women" value="{{ old('wome') }}"></td>
+                      <td><input type="text" class="form-control" name="table_number" value="{{ old('table_number') }}"></td>
+                      <td><input type="text" class="form-control" name="amount" value="{{ old('amount') }}"></td>
+                      <td><input type="text" class="form-control" name="service_1" value="{{ old('service_1') }}"></td>
+                      <td><input type="text" class="form-control" name="staff_1staff_1" value="{{ old('staff_1') }}"></td>
                   </tr>
                   <tr>
                       <td></td>
@@ -183,7 +184,8 @@
                   </tr>
               </tbody>
           </table>
-          </form>
+
+          </div>
           </div>
 
 

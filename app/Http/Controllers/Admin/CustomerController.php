@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 //Customer Model
 use App\Customer;
+use App\List_dtls;
+use App\List_heds;
 
 class CustomerController extends Controller
 {
@@ -49,10 +51,11 @@ class CustomerController extends Controller
       return view('admin.customer.index', ['posts' => $posts, 'cond_name' => $cond_name]);
     }
 
-    public function show(Request $request) //????????????
+    public function show($id) //????????????
     {
-    
-      return view('admin.customer.show', );
+      $customer = Customer::findOrFail($id);
+
+      return view('admin.customer.show', ['customer' => Customer::findOrFail($id)]);
     }
 
     public function edit(Request $request)
@@ -83,6 +86,32 @@ class CustomerController extends Controller
 
     public function li_create(Request $request)
     {
+      $this->validate($request, List_dtls::$rules);
+
+      $list_dtls = new List_dtls;
+      $form = $request->all();
+
+      if (isset($form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $list_dtls->image_path = basename($path);
+      } else {
+        $list_dtls->image_path = null;
+      }
+
+      unset($form['_token']);
+      unset($form['image']);
+
+      $list_dtls->fill($form);
+      $list_dtls->save();
+
       return redirect ('admin/customer/ListCreate');
     }
+
+  /*   public function li_index(Request $request)
+    {
+      $cond_time = $request->cond_time;
+      if ($cond_time != '') {
+        $posts =
+      }
+    } */
 }

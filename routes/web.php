@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
   Route::get('customer/index', 'Admin\CustomerController@index');
 
-  Route::get('customer/show', 'Admin\CustomerController@show');
+  Route::get('customer/show/{id}', 'Admin\CustomerController@show');
 
   Route::get('customer/edit', 'Admin\CustomerController@edit');
   Route::post('customer/edit', 'Admin\CustomerController@update');

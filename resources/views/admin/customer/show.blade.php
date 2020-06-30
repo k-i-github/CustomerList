@@ -7,15 +7,22 @@
       <h2>顧客詳細</h2>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
+        <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
+      </div>
+
+
+
+      <div class="col-md-3">
         <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
       </div>
+
+
+      <div class="col-md-3">
+        <a href="{{ action('Admin\CustomerController@edit', ['id' => $customer->id]) }}" role="button" class="btn btn-primary">編集</a>
+
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        <a href="{{ action('Admin\CustomerController@edit', ['id' => $posts->id]) }}" role="button" class="btn btn-primary">編集</a>
-      </div>
-    </div>
+  </div>
       <div class="row">
         <div class="list-customer col-md-12 mx-auto">
           <div class="row">
@@ -31,7 +38,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($posts as $customer)
+
                   <tr>
                     <th>{{ $customer->id }}</th>
                     <td>{{ $customer->name }}</td>
@@ -40,7 +47,7 @@
                     <td>{{ $customer->staff }}</td>
                     <td>{{ $customer->bottle }}</td>
                   </tr>
-                @endforeach
+
               </tbody>
             </table>
           </div>
