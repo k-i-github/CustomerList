@@ -17,7 +17,7 @@
           <div class="form-group row">
             <label class="col-md-2">日付</label>
             <div class="col-md-2">
-              <input type="date" class="form-control" name="date" value="{{ old('date') }}">
+              <input type="date" class="form-control" name="list_date" value="{{ old('list_date') }}">
             </div>
           </div>
 
@@ -49,8 +49,7 @@
                       <td><input type="text" class="form-control" name="visitor" value="{{ old('visitor') }}"></td>
                       <td><input type="text" class="form-control" name="clientlist" value="{{ old('clientlist') }}"></td>
                       <td><input type="text" class="form-control" name="customer_name" value="{{ old('customer_name') }}"></td>
-                      <td><input type="text" class="form-control" name="men" value="{{ old('men') }}"></td>
-                      <td><input type="text" class="form-control" name="women" value="{{ old('women') }}"></td>
+                      <td><input type="text" class="form-control" name="gender" value="{{ old('gender') }}"></td>
                       <td><input type="text" class="form-control" name="table_number" value="{{ old('table_number') }}"></td>
                       <td><input type="text" class="form-control" name="amount" value="{{ old('amount') }}"></td>
                       <td><input type="text" class="form-control" name="service" value="{{ old('service') }}"></td>
@@ -195,7 +194,7 @@
           <div class="form-group row">
             <label class="col-md-2">画像アップロード</label>
               <div class="col-md-10">
-                <input type="file" class="form-control-file" name="image">
+                <input type="file" class="form-control-file" name="image_path">
               </div>
           </div>
 

@@ -15,9 +15,8 @@ class CreateListHedsTable extends Migration
     {
         Schema::create('list_heds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('list_dtls_id');
-            $table->string('list_dtls_date');
-            $table->string('list_dtls_image_path');
+            $table->string('list_date');
+            $table->string('image_path');
             $table->timestamps();
         });
     }
