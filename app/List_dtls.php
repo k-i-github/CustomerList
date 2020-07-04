@@ -7,13 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class List_dtls extends Model
 {
   protected $table ='list_dtls';
-  protected $guarded = array('id');
+  protected $fillable = ['date', 'visitor'];
+  protected $guaded = array('id');
 
-    // ListDtls
-    public static $rules = array(
-      'date' => 'required',
-      'time' => 'required',
-      'visitor' => 'required',
-    );
+  public static $rules = array(
+//  'list_heds_id' => 'required',
+    'date' => 'required',
+    'visitor' => 'required',
+  );
+
+  public function list_heds()
+  {
+    return $this->hasMany('App\List_heds');
+  }
 
 }

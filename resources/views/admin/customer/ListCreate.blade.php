@@ -47,14 +47,14 @@
                       <td>1</td>
                       <td><input type="time" class="form-control" name="time" value="{{ old('time') }}"></td>
                       <td><input type="text" class="form-control" name="visitor" value="{{ old('visitor') }}"></td>
-                      <td><input type="text" class="form-control" name="clientlist_1" value="{{ old('clientlist_1') }}"></td>
-                      <td><input type="text" class="form-control" name="customer_name_1" value="{{ old('customer_name_1') }}"></td>
+                      <td><input type="text" class="form-control" name="clientlist" value="{{ old('clientlist') }}"></td>
+                      <td><input type="text" class="form-control" name="customer_name" value="{{ old('customer_name') }}"></td>
                       <td><input type="text" class="form-control" name="men" value="{{ old('men') }}"></td>
-                      <td><input type="text" class="form-control" name="women" value="{{ old('wome') }}"></td>
+                      <td><input type="text" class="form-control" name="women" value="{{ old('women') }}"></td>
                       <td><input type="text" class="form-control" name="table_number" value="{{ old('table_number') }}"></td>
                       <td><input type="text" class="form-control" name="amount" value="{{ old('amount') }}"></td>
-                      <td><input type="text" class="form-control" name="service_1" value="{{ old('service_1') }}"></td>
-                      <td><input type="text" class="form-control" name="staff_1staff_1" value="{{ old('staff_1') }}"></td>
+                      <td><input type="text" class="form-control" name="service" value="{{ old('service') }}"></td>
+                      <td><input type="text" class="form-control" name="staff" value="{{ old('staff') }}"></td>
                   </tr>
                   <tr>
                       <td></td>

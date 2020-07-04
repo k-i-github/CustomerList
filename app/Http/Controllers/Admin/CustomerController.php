@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 //Customer Model
 use App\Customer;
+use Carbon\carbon;
 use App\List_dtls;
 use App\List_heds;
 
@@ -103,6 +104,11 @@ class CustomerController extends Controller
 
       $list_dtls->fill($form);
       $list_dtls->save();
+
+      $list_heds = new List_heds;
+      $list_heds->list_dtls_id = $list_dtls->id;
+      $list_heds->date = Carbon::now();
+      $list_heds->save();
 
       return redirect ('admin/customer/ListCreate');
     }

@@ -55,9 +55,7 @@
       </div>
       <div class="row">
         <div class="col-md-10 mx-auto">
-        <div class="card">
-          <p class="card-text">{{ $customer->note }}</p>
-        </div>
+          <div class="border border-white" style="padding:5px;">{{ $customer->note }}</div>
       </div>
       </div>
     </div>
