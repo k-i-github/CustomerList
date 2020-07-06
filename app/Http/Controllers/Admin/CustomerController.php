@@ -91,13 +91,17 @@ class CustomerController extends Controller
       $list_heds = new List_heds;
       $list_heds->created_at = Carbon::now();
 
+      $form = $request->all();
+
+
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
-        $list_dtls->image_path = basename($path);
+        $list_heds->image_path = basename($path);
       } else {
-        $list_dtls->image_path = null;
+        //$list_heds->image_path = null;
+        $list_heds->image_path = "test";
       }
-
+      $list_heds->list_date = $form['list_date'];
       $list_heds->save();
 
       $this->validate($request, List_dtls::$rules);
@@ -110,8 +114,8 @@ class CustomerController extends Controller
       unset($form['_token']);
       unset($form['image']);
 
-      $list_dtls->fill($form);
-      $list_dtls->save();
+      //$list_dtls->fill($form);
+      //$list_dtls->save();
 
       return redirect ('admin/customer/ListCreate');
     }

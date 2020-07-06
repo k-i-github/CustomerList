@@ -33,8 +33,7 @@
                       <th>来店者名</th>
                       <th>営業先店舗</th>
                       <th>顧客名</th>
-                      <th>男</th>
-                      <th>女</th>
+                      <th>性別</th>
                       <th>卓番</th>
                       <th>金額</th>
                       <th>接客</th>
@@ -194,7 +193,7 @@
           <div class="form-group row">
             <label class="col-md-2">画像アップロード</label>
               <div class="col-md-10">
-                <input type="file" class="form-control-file" name="image_path">
+                <input type="file" class="form-control-file" name="image">
               </div>
           </div>
 
