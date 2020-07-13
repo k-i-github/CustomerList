@@ -66,12 +66,10 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
                   </tr>
                   <tr>
                       <td></td>
                       <td>3</td>
-                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -94,12 +92,10 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
                   </tr>
                   <tr>
                       <td></td>
                       <td>5</td>
-                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -122,12 +118,10 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
                   </tr>
                   <tr>
                       <td></td>
                       <td>7</td>
-                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -150,7 +144,6 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
                   </tr>
                   <tr>
                       <td></td>
@@ -164,12 +157,10 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
                   </tr>
                   <tr>
                       <td></td>
                       <td>10</td>
-                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>

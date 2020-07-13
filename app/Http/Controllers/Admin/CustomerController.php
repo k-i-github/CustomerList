@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 //Customer Model
 use App\Customer;
 use Carbon\carbon;
+// 使用モデルの宣言
 use App\List_dtls;
 use App\List_heds;
 
@@ -89,6 +90,8 @@ class CustomerController extends Controller
     {
       // まずはHEDを登録
       $list_heds = new List_heds;
+      // ピカチュウ->攻撃力 = 100;
+      // ピカチュウ->防御力 = 90;
       $list_heds->created_at = Carbon::now();
 
       $form = $request->all();
@@ -103,17 +106,28 @@ class CustomerController extends Controller
       }
       $list_heds->list_date = $form['list_date'];
       $list_heds->save();
+      // 上のlistheds seveで登録したレコードのIDを取得
+      $list_insert_id = $list_heds->id;
+      // list heds終わり
 
       $this->validate($request, List_dtls::$rules);
 
       // 上記で登録されたHEDのIDをDTLテーブルのlistHED idに登録する
       $list_dtls = new List_dtls;
-      $form = $request->all();
+      // dtlsの hed_id に上で作った$list_insert_id(hedsのIDを登録する)
+      $list_dtls->list_hed_id = $list_insert_id;
+      $list_dtls->classification = $form['classification'];
+      $list_dtls->time = $form['time'];
+      $list_dtls->visitor = $form['visitor'];
+      $list_dtls->clientlist = $form['clientlist'];
+      $list_dtls->customer_name = $form['customer_name'];
+      $list_dtls->gender = $form['gender'];
+      $list_dtls->table_number = $form['table_number'];
+      $list_dtls->amount = $form['amount'];
+      $list_dtls->service = $form['service'];
+      $list_dtls->staff = $form['staff'];
 
-
-      unset($form['_token']);
-      unset($form['image']);
-
+      $list_dtls->save();
       //$list_dtls->fill($form);
       //$list_dtls->save();
 
