@@ -4,7 +4,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <h2>顧客一覧</h2>
+      <h2>リスト一覧</h2>
     </div>
     <div class="row">
       <div class="col-md-2">
@@ -18,7 +18,7 @@
             <div class="form-group row">
               <label class="col-md-2">日付　検索</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
+                <input type="text" class="form-control" name="cond_date" value="{{ $cond_date }}">
               </div>
 
               <div class="col-md-2">
@@ -42,16 +42,11 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($posts as $customer)
+                @foreach($posts as $list_heds)
                   <tr>
-                    <th>{{ $ }}</th>
-                    <td>{{ $ }}</td>
-                    <td>{{ $ }}</td>
-                    <td>
-                      <div>
-                        <a href="{{ action('Admin\CustomerController@show', ['id' => $customer->id]) }}">詳細</a>
-                      </div>
-                    </td>
+                    <th>{{ $list_heds->list_date }}</th>
+                    <td><a href="{{ action('Admin\CustomerController@li_show', ['id' => $list_heds->id]) }}">詳細</a></td>
+                    <td>画像</td>
                   </tr>
                 @endforeach
               </tbody>

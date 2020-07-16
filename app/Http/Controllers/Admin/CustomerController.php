@@ -134,11 +134,21 @@ class CustomerController extends Controller
       return redirect ('admin/customer/ListCreate');
     }
 
-  /*   public function li_index(Request $request)
+     public function li_index(Request $request)
     {
-      $cond_time = $request->cond_time;
-      if ($cond_time != '') {
-        $posts =
+      $cond_date = $request->cond_date;
+      if ($cond_date != '') {
+        $posts = List_heds::where('list_date', $cond_date)->get();
+      } else {
+        $posts = List_heds::all();
       }
-    } */
+      return view ('admin.customer.List.index',  ['posts' => $posts, 'cond_date' => $cond_date]);
+    }
+
+    public function li_show($id) //????????????
+    {
+      $list_heds = List_heds::findOrFail($id);
+
+      return view ('admin.customer.ListShow', ['list_heds' => List_heds::findOrFail($id)]);
+    }
 }
