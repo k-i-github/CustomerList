@@ -111,23 +111,27 @@ class CustomerController extends Controller
       // list heds終わり
 
       $this->validate($request, List_dtls::$rules);
+      $i = 1;
 
       // 上記で登録されたHEDのIDをDTLテーブルのlistHED idに登録する
       $list_dtls = new List_dtls;
       // dtlsの hed_id に上で作った$list_insert_id(hedsのIDを登録する)
       $list_dtls->list_hed_id = $list_insert_id;
-      $list_dtls->classification = $form['classification'];
-      $list_dtls->time = $form['time'];
-      $list_dtls->visitor = $form['visitor'];
-      $list_dtls->clientlist = $form['clientlist'];
-      $list_dtls->customer_name = $form['customer_name'];
-      $list_dtls->gender = $form['gender'];
-      $list_dtls->table_number = $form['table_number'];
-      $list_dtls->amount = $form['amount'];
-      $list_dtls->service = $form['service'];
-      $list_dtls->staff = $form['staff'];
+      for ($i = 1; $i <= 2; $i++){
+        $list_dtls->classification = $form['classification'. $i];
+        $list_dtls->time = $form['time'. $i];
+        $list_dtls->visitor = $form['visitor'. $i];
+        $list_dtls->clientlist = $form['clientlist'. $i];
+        $list_dtls->customer_name = $form['customer_name'. $i];
+        $list_dtls->gender = $form['gender'. $i];
+        $list_dtls->table_number = $form['table_number'. $i];
+        $list_dtls->amount = $form['amount'. $i];
+        $list_dtls->service = $form['service'. $i];
+        $list_dtls->staff = $form['staff'. $i];
 
-      $list_dtls->save();
+        $list_dtls->save();
+      }
+
       //$list_dtls->fill($form);
       //$list_dtls->save();
 
@@ -148,7 +152,9 @@ class CustomerController extends Controller
     public function li_show($id) //????????????
     {
       $list_heds = List_heds::findOrFail($id);
+      $list_dtls = List_dtls::where('list_hed_id', $id)->get();
+      dd($list_dtls);
 
-      return view ('admin.customer.list.show', ['list_heds' => list_heds::findOrFail($id)]);
+      return view ('admin.customer.list.show', ['list_heds' => list_heds::findOrFail($id), 'list_dtls' => $list_dtls]);
     }
 }

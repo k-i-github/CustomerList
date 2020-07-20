@@ -42,30 +42,30 @@
               </thead>
               <tbody>
                   <tr>
-                      <td><input type="text" class="form-control" name="classification" value="{{ old('classification') }}"></td>
+                      <td><input type="text" class="form-control" name="classification1" value="{{ old('classification1') }}"></td>
                       <td>1</td>
-                      <td><input type="time" class="form-control" name="time" value="{{ old('time') }}"></td>
-                      <td><input type="text" class="form-control" name="visitor" value="{{ old('visitor') }}"></td>
-                      <td><input type="text" class="form-control" name="clientlist" value="{{ old('clientlist') }}"></td>
-                      <td><input type="text" class="form-control" name="customer_name" value="{{ old('customer_name') }}"></td>
-                      <td><input type="text" class="form-control" name="gender" value="{{ old('gender') }}"></td>
-                      <td><input type="text" class="form-control" name="table_number" value="{{ old('table_number') }}"></td>
-                      <td><input type="text" class="form-control" name="amount" value="{{ old('amount') }}"></td>
-                      <td><input type="text" class="form-control" name="service" value="{{ old('service') }}"></td>
-                      <td><input type="text" class="form-control" name="staff" value="{{ old('staff') }}"></td>
+                      <td><input type="time" class="form-control" name="time1" value="{{ old('time1') }}"></td>
+                      <td><input type="text" class="form-control" name="visitor1" value="{{ old('visitor1') }}"></td>
+                      <td><input type="text" class="form-control" name="clientlist1" value="{{ old('clientlist1') }}"></td>
+                      <td><input type="text" class="form-control" name="customer_name1" value="{{ old('customer_name1') }}"></td>
+                      <td><input type="text" class="form-control" name="gender1" value="{{ old('gender1') }}"></td>
+                      <td><input type="text" class="form-control" name="table_number1" value="{{ old('table_number1') }}"></td>
+                      <td><input type="text" class="form-control" name="amount1" value="{{ old('amount1') }}"></td>
+                      <td><input type="text" class="form-control" name="service1" value="{{ old('service1') }}"></td>
+                      <td><input type="text" class="form-control" name="staff1" value="{{ old('staff1') }}"></td>
                   </tr>
                   <tr>
-                      <td></td>
-                      <td>2</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                    <td><input type="text" class="form-control" name="classification2" value="{{ old('classification2') }}"></td>
+                    <td>2</td>
+                    <td><input type="time" class="form-control" name="time2" value="{{ old('time2') }}"></td>
+                    <td><input type="text" class="form-control" name="visitor2" value="{{ old('visitor2') }}"></td>
+                    <td><input type="text" class="form-control" name="clientlist2" value="{{ old('clientlist2') }}"></td>
+                    <td><input type="text" class="form-control" name="customer_name2" value="{{ old('customer_name2') }}"></td>
+                    <td><input type="text" class="form-control" name="gender2" value="{{ old('gender2') }}"></td>
+                    <td><input type="text" class="form-control" name="table_number2" value="{{ old('table_number2') }}"></td>
+                    <td><input type="text" class="form-control" name="amount2" value="{{ old('amount2') }}"></td>
+                    <td><input type="text" class="form-control" name="service2" value="{{ old('service2') }}"></td>
+                    <td><input type="text" class="form-control" name="staff2" value="{{ old('staff2') }}"></td>
                   </tr>
                   <tr>
                       <td></td>

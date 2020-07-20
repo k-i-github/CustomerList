@@ -10,8 +10,8 @@ class List_dtls extends Model
   protected $guaded = array('id');
 
   public static $rules = array(
-    'time' => 'required',
-    'visitor' => 'required',
+    'time1' => 'required',
+    'visitor1' => 'required',
   );
 
 }

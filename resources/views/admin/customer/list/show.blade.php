@@ -19,7 +19,7 @@
 
 
       <div class="col-md-3">
-        <a href="{{ action('Admin\CustomerController@edit', ['id' => $customer->id]) }}" role="button" class="btn btn-primary">編集</a>
+        <a href="{{ action('Admin\CustomerController@edit', ['id' => 1]) }}" role="button" class="btn btn-primary">編集</a>
 
     </div>
   </div>
@@ -51,20 +51,22 @@
           </tr>
       </thead>
       <tbody>
+        @foreach($list_dtls as $list_dtl)
           <tr>
-              <td>{{ $list_dtls->classification }}</td>
+              <td>{{ $list_dtl->classification }}</td>
               <td>1</td>
-              <td>{{ $list_dtls->time }}</td>
-              <td>{{ $list_dtls->visitor }}</td>
-              <td>{{ $list_dtls->clientlist }}</td>
-              <td>{{ $list_dtls->customer_name }}</td>
-              <td>{{ $list_dtls->gender }}</td>
-              <td>{{ $list_dtls->table_number }}</td>
-              <td>{{ $list_dtls->amount }}</td>
-              <td>{{ $list_dtls->service }}</td>
-              <td>{{ $list_dtls->staff }}</td>
+              <td>{{ $list_dtl->time }}</td>
+              <td>{{ $list_dtl->visitor }}</td>
+              <td>{{ $list_dtl->clientlist }}</td>
+              <td>{{ $list_dtl->customer_name }}</td>
+              <td>{{ $list_dtl->gender }}</td>
+              <td>{{ $list_dtl->table_number }}</td>
+              <td>{{ $list_dtl->amount }}</td>
+              <td>{{ $list_dtl->service }}</td>
+              <td>{{ $list_dtl->staff }}</td>
           </tr>
 
+        @endforeach
 
 
 
@@ -73,6 +75,6 @@
 
   </div>
   </div>
-      
+
     </div>
 @endsection
