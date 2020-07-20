@@ -27,7 +27,9 @@
               </a>
             </div>
             <div class="col-md-6 mx-auto">
+              <a href="{{ action('Admin\CustomerController@li_index') }}">
               <div class="border border-white text-center" style="padding:10%;">来店リスト一覧</div>
+              </a>
             </div>
           </div>
         </div>

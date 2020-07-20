@@ -142,13 +142,13 @@ class CustomerController extends Controller
       } else {
         $posts = List_heds::all();
       }
-      return view ('admin.customer.List.index',  ['posts' => $posts, 'cond_date' => $cond_date]);
+      return view ('admin.customer.list.index',  ['posts' => $posts, 'cond_date' => $cond_date]);
     }
 
     public function li_show($id) //????????????
     {
       $list_heds = List_heds::findOrFail($id);
 
-      return view ('admin.customer.ListShow', ['list_heds' => List_heds::findOrFail($id)]);
+      return view ('admin.customer.list.show', ['list_heds' => list_heds::findOrFail($id)]);
     }
 }

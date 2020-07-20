@@ -32,8 +32,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('customer/ListCreate', 'Admin\CustomerController@li_add');
   Route::post('customer/ListCreate', 'Admin\CustomerController@li_create');
 
-  Route::get('customer/List.index', 'Admin\CustomerController@li_index');
-  Route::get('customer/ListShow/{id}', 'Admin\CustomerController@li_show');
+  Route::get('customer/list/index', 'Admin\CustomerController@li_index');
+  Route::get('customer/list/show/{id}', 'Admin\CustomerController@li_show');
 
 });
 

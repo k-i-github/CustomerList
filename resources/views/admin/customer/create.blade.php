@@ -5,7 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
+
         <h2>新規顧客追加</h2>
+
         <form action="{{ action('Admin\CustomerController@create') }}" method="post" enctype="multipart/form-data">
           @if (count($errors) > 0)
             <ul>
@@ -14,6 +16,21 @@
               @endforeach
             </ul>
           @endif
+        
+          <div class="row">
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
+            </div>
+
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
+            </div>
+
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
+            </div>
+          </div>
+
 
 
           <div class="form-group row">
@@ -77,6 +94,7 @@
                 <textarea class="form-control" name="note" rows="20">{{ old('note') }}</textarea>
               </div>
             </div>
+
 
             {{ csrf_field() }}
             <input type="submit" class="btn btn-primary" value="作成">
