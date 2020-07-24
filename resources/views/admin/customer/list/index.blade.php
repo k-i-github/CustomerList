@@ -6,13 +6,20 @@
     <div class="row">
       <h2>リスト一覧</h2>
     </div>
-    <div class="row">
-      <div class="col-md-2">
+
+    <div class="row m-3">
+      <div class="col-md-4">
         <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-4">
+        <a href="{{ action('Admin\CustomerController@li_create') }}" role="button" class="btn btn-primary">リスト追加</a>
+      </div>
+      <div class="col-md-4">
         <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
       </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-8">
           <form action="{{ action('Admin\CustomerController@li_index') }}" method="get">
             <div class="form-group row">
@@ -28,7 +35,7 @@
             </div>
           </form>
         </div>
-      </div>
+    </div>
 
       <div class="row">
         <div class="list-customer col-md-12 mx-auto">

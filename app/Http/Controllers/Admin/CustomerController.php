@@ -78,7 +78,7 @@ class CustomerController extends Controller
 
       $customer->fill($customer_form)->save();
 
-      return redirect('admin/customer');
+      return redirect('admin/customer/index');
     }
     //リストページ
     public function li_add()
@@ -156,5 +156,29 @@ class CustomerController extends Controller
       dd($list_dtls);
 
       return view ('admin.customer.list.show', ['list_heds' => list_heds::findOrFail($id), 'list_dtls' => $list_dtls]);
+    }
+
+    public function li_edit(Request $request)
+    {
+      $list_heds = List_heds::find($request->id);
+      if (empty($list_heds)) {
+        abort(404);
+      }
+      return view('admin.customer.list.edit', ['list_heds_form' => $list_heds]);
+    }
+
+    public function li_update(Request $request)
+    {
+      $this->validate($request, List_dtls::$rules);
+      $list_heds = List_heds::find($request->id);
+      $list_heds_form = $request->all();
+      $list_dtls_form = $request->all();
+      unset($list_heds_form['_token']);
+      unset($list_dtls_form['_token']);
+
+      $list_heds->fill($list_heds_form)->save();
+      $list_dtls->fill($list_dtls_form)->save();
+
+      return redirect('admin/customer/list/index');
     }
 }

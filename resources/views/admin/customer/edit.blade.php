@@ -15,6 +15,20 @@
             </ul>
           @endif
 
+          <div class="row m-3">
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
+            </div>
+
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
+            </div>
+
+            <div class="col-md-4">
+              <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
+            </div>
+          </div>
+
           <div class="form-group row">
             <label class="col-md-2" for="name">名前</label>
             <div class="col-md-10">

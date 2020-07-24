@@ -6,10 +6,22 @@
     <div class="row">
       <h2>顧客一覧</h2>
     </div>
-    <div class="row">
+
+    <div class="row m-3">
       <div class="col-md-4">
         <a href="{{ action('Admin\CustomerController@add') }}" role="button" class="btn btn-primary">新規顧客追加</a>
       </div>
+
+      <div class="col-md-4">
+        <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
+      </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-8">
           <form action="{{ action('Admin\CustomerController@index') }}" method="get">
             <div class="form-group row">

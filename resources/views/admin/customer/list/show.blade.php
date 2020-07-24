@@ -6,23 +6,24 @@
     <div class="row">
       <h2>リスト詳細</h2>
     </div>
-    <div class="row">
+    <div class="row m-3">
       <div class="col-md-3">
         <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
       </div>
 
-
+      <div class="col-md-3">
+        <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
+      </div>
 
       <div class="col-md-3">
         <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
       </div>
 
-
       <div class="col-md-3">
         <a href="{{ action('Admin\CustomerController@edit', ['id' => 1]) }}" role="button" class="btn btn-primary">編集</a>
+      </div>
 
     </div>
-  </div>
 
   <div class="form-group row">
     <label class="col-md-2">日付</label>

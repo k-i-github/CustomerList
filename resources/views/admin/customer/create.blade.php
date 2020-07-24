@@ -16,8 +16,8 @@
               @endforeach
             </ul>
           @endif
-        
-          <div class="row">
+
+          <div class="row m-3">
             <div class="col-md-4">
               <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
             </div>

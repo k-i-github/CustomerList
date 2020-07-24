@@ -35,6 +35,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('customer/list/index', 'Admin\CustomerController@li_index');
   Route::get('customer/list/show/{id}', 'Admin\CustomerController@li_show');
 
+  Route::get('customer/list/edit', 'Admin\CustomerController@li_edit');
+  Route::post('customer/list/edit', 'Admin\CustomerController@li_update');
+
 });
 
 Auth::routes();
