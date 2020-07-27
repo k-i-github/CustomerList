@@ -4,7 +4,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col-md-8 mx-auto">
+      <div class="col-md-12 mx-auto">
         <h2>リスト編集</h2>
         <form action="{{ action('Admin\CustomerController@li_update') }}" method="post" enctype="multipart/form-data">
           @if (count($errors) > 0)
@@ -42,136 +42,47 @@
                   </tr>
               </thead>
               <tbody>
+
+
+                @for ($i = 0; $i < 10; $i++)
+
+                @if ( count($list_dtls_form) >= $i + 1 )
+
                   <tr>
-                      <td><input type="text" class="form-control" name="classification1" value="{{ $list_dtls_form->classification1 }}"></td>
-                      <td>1</td>
-                      <td><input type="time" class="form-control" name="time1" value="{{ $list_dtls_form->time1 }}"></td>
-                      <td><input type="text" class="form-control" name="visitor1" value="{{ $list_dtls_form->visitor1}}"></td>
-                      <td><input type="text" class="form-control" name="clientlist1" value="{{ $list_dtls_form->clientlist1 }}"></td>
-                      <td><input type="text" class="form-control" name="customer_name1" value="{{ $list_dtls_form->customer_name1 }}"></td>
-                      <td><input type="text" class="form-control" name="gender1" value="{{ $list_dtls_form->gender1 }}"></td>
-                      <td><input type="text" class="form-control" name="table_number1" value="{{ $list_dtls_form->table_number1 }}"></td>
-                      <td><input type="text" class="form-control" name="amount1" value="{{ $list_dtls_form->amount1 }}"></td>
-                      <td><input type="text" class="form-control" name="service1" value="{{ $list_dtls_form->service1 }}"></td>
-                      <td><input type="text" class="form-control" name="staff1" value="{{ $list_dtls_form->staff1 }}"></td>
+                      <td><input type="text" class="form-control" name="classification{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->classification }}"></td>
+                      <td>{{ $i + 1 }}</td>
+                      <td><input type="text" class="form-control" name="time{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->time }}"></td>
+                      <td><input type="text" class="form-control" name="visitor{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->visitor }}"></td>
+                      <td><input type="text" class="form-control" name="clientlist{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->clientlist }}"></td>
+                      <td><input type="text" class="form-control" name="customer_name{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->customer_name }}"></td>
+                      <td><input type="text" class="form-control" name="gender{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->gender }}"></td>
+                      <td><input type="text" class="form-control" name="table_number{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->table_number }}"></td>
+                      <td><input type="text" class="form-control" name="amount{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->amount }}"></td>
+                      <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->service }}"></td>
+                      <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->staff }}"></td>
+
+
                   </tr>
+                  @else
                   <tr>
-                    <td><input type="text" class="form-control" name="classification2" value="{{ $list_dtls_form->classification2 }}"></td>
-                    <td>2</td>
-                    <td><input type="time" class="form-control" name="time2" value="{{ $list_dtls_form->time2 }}"></td>
-                    <td><input type="text" class="form-control" name="visitor2" value="{{ $list_dtls_form->visitor2 }}"></td>
-                    <td><input type="text" class="form-control" name="clientlist2" value="{{ $list_dtls_form->clientlist2 }}"></td>
-                    <td><input type="text" class="form-control" name="customer_name2" value="{{ $list_dtls_form->customer_name2 }}"></td>
-                    <td><input type="text" class="form-control" name="gender2" value="{{ $list_dtls_form->gender2 }}"></td>
-                    <td><input type="text" class="form-control" name="table_number2" value="{{ $list_dtls_form->table_number2 }}"></td>
-                    <td><input type="text" class="form-control" name="amount2" value="{{ $list_dtls_form->amount2 }}"></td>
-                    <td><input type="text" class="form-control" name="service2" value="{{ $list_dtls_form->service2 }}"></td>
-                    <td><input type="text" class="form-control" name="staff2" value="{{ $list_dtls_form->staff2 }}"></td>
+                      <td><input type="text" class="form-control" name="classification{{ $i + 1 }}" value=""></td>
+                      <td>{{ $i + 1 }}</td>
+                      <td><input type="text" class="form-control" name="time{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="visitor{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="clientlist{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="customer_name{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="gender{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="table_number{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="amount{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value=""></td>
+                      <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value=""></td>
+
+
                   </tr>
-                  <tr>
-                      <td></td>
-                      <td>3</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>4</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>5</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>6</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>7</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>8</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>9</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>10</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
+                  @endif
+                  @endfor
+                  
+
               </tbody>
           </table>
 

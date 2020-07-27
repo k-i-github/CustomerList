@@ -153,18 +153,21 @@ class CustomerController extends Controller
     {
       $list_heds = List_heds::findOrFail($id);
       $list_dtls = List_dtls::where('list_hed_id', $id)->get();
-      dd($list_dtls);
+
 
       return view ('admin.customer.list.show', ['list_heds' => list_heds::findOrFail($id), 'list_dtls' => $list_dtls]);
     }
 
     public function li_edit(Request $request)
     {
-      $list_heds = List_heds::find($request->id);
+      $list_heds = List_heds::findOrFail($request->id);
       if (empty($list_heds)) {
         abort(404);
       }
-      return view('admin.customer.list.edit', ['list_heds_form' => $list_heds]);
+      $list_dtls = List_dtls::where('list_hed_id', $request->id)->get();
+
+
+      return view('admin.customer.list.edit', ['list_heds_form' => $list_heds, 'list_dtls_form' => $list_dtls, ]);
     }
 
     public function li_update(Request $request)
@@ -173,11 +176,22 @@ class CustomerController extends Controller
       $list_heds = List_heds::find($request->id);
       $list_heds_form = $request->all();
       $list_dtls_form = $request->all();
+
+      $heds_image = $request->all();
+      if (isset($heds_image['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $list_heds->image_path = basename($path);
+        unset($heds_image['image']);
+      } elseif (isset($request->remove)) {
+        $list_heds->image_path = null;
+        unset($heds_image['remove']);
+      }
+
       unset($list_heds_form['_token']);
       unset($list_dtls_form['_token']);
 
       $list_heds->fill($list_heds_form)->save();
-      $list_dtls->fill($list_dtls_form)->save();
+      $list_dtls->fill($list_dtl_form)->save();
 
       return redirect('admin/customer/list/index');
     }

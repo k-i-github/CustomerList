@@ -20,7 +20,7 @@
       </div>
 
       <div class="col-md-3">
-        <a href="{{ action('Admin\CustomerController@edit', ['id' => 1]) }}" role="button" class="btn btn-primary">編集</a>
+        <a href="{{ action('Admin\CustomerController@li_edit', ['id' => $list_heds->id]) }}" role="button" class="btn btn-primary">編集</a>
       </div>
 
     </div>
