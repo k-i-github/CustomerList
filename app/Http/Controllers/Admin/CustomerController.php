@@ -113,23 +113,28 @@ class CustomerController extends Controller
       $this->validate($request, List_dtls::$rules);
       $i = 1;
 
-      // 上記で登録されたHEDのIDをDTLテーブルのlistHED idに登録する
-      $list_dtls = new List_dtls;
-      // dtlsの hed_id に上で作った$list_insert_id(hedsのIDを登録する)
-      $list_dtls->list_hed_id = $list_insert_id;
-      for ($i = 1; $i <= 2; $i++){
-        $list_dtls->classification = $form['classification'. $i];
-        $list_dtls->time = $form['time'. $i];
-        $list_dtls->visitor = $form['visitor'. $i];
-        $list_dtls->clientlist = $form['clientlist'. $i];
-        $list_dtls->customer_name = $form['customer_name'. $i];
-        $list_dtls->gender = $form['gender'. $i];
-        $list_dtls->table_number = $form['table_number'. $i];
-        $list_dtls->amount = $form['amount'. $i];
-        $list_dtls->service = $form['service'. $i];
-        $list_dtls->staff = $form['staff'. $i];
 
-        $list_dtls->save();
+      for ($i = 1; $i <= 10; $i++){
+        // 上記で登録されたHEDのIDをDTLテーブルのlistHED idに登録する
+        $list_dtls = new List_dtls;
+        // dtlsの hed_id に上で作った$list_insert_id(hedsのIDを登録する)
+        $list_dtls->list_hed_id = $list_insert_id;
+
+        if ($form['visitor'. $i] != ""){
+          $list_dtls->classification = $form['classification'. $i];
+          $list_dtls->time = $form['time'. $i];
+          $list_dtls->visitor = $form['visitor'. $i];
+          $list_dtls->clientlist = $form['clientlist'. $i];
+          $list_dtls->customer_name = $form['customer_name'. $i];
+          $list_dtls->gender = $form['gender'. $i];
+          $list_dtls->table_number = $form['table_number'. $i];
+          $list_dtls->amount = $form['amount'. $i];
+          $list_dtls->service = $form['service'. $i];
+          $list_dtls->staff = $form['staff'. $i];
+
+          $list_dtls->save();
+        }
+
       }
 
       //$list_dtls->fill($form);
@@ -173,7 +178,12 @@ class CustomerController extends Controller
     public function li_update(Request $request)
     {
       $this->validate($request, List_dtls::$rules);
-      $list_heds = List_heds::find($request->id);
+      $list_heds = List_heds::findOrFail($id);
+    //  $list_heds = List_heds::find($request->id);
+
+    //dtl削除を作る
+
+    //削除後登録
       $list_heds_form = $request->all();
       $list_dtls_form = $request->all();
 
@@ -191,8 +201,8 @@ class CustomerController extends Controller
       unset($list_dtls_form['_token']);
 
       $list_heds->fill($list_heds_form)->save();
-      $list_dtls->fill($list_dtl_form)->save();
+      $list_dtls->fill($list_dtls_form)->save();
 
-      return redirect('admin/customer/list/index');
+      return redirect('admin/customer/list/index', ['list_heds' => list_heds::findOrFail($id)]);
     }
 }

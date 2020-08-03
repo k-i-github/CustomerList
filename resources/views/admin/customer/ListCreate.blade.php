@@ -6,6 +6,19 @@
     <div class="row">
       <div class="col-md-12 mx-auto">
         <h2>来店リスト追加</h2>
+
+        <div class="row m-3">
+          <div class="col-md-4">
+            <a href="{{ action('Admin\CustomerController@index') }}" role="button" class="btn btn-primary">顧客一覧</a>
+          </div>
+          <div class="col-md-4">
+            <a href="{{ action('Admin\CustomerController@li_index') }}" role="button" class="btn btn-primary">リスト一覧</a>
+          </div>
+          <div class="col-md-4">
+            <a href="{{ action('Admin\CustomerController@menu') }}" role="button" class="btn btn-primary">TOP</a>
+          </div>
+        </div>
+
         <form action="{{ action('Admin\CustomerController@li_create') }}" method="post" enctype="multipart/form-data">
           @if (count($errors) > 0)
             <ul>
@@ -41,144 +54,29 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td><input type="text" class="form-control" name="classification1" value="{{ old('classification1') }}"></td>
-                      <td>1</td>
-                      <td><input type="time" class="form-control" name="time1" value="{{ old('time1') }}"></td>
-                      <td><input type="text" class="form-control" name="visitor1" value="{{ old('visitor1') }}"></td>
-                      <td><input type="text" class="form-control" name="clientlist1" value="{{ old('clientlist1') }}"></td>
-                      <td><input type="text" class="form-control" name="customer_name1" value="{{ old('customer_name1') }}"></td>
-                      <td><input type="text" class="form-control" name="gender1" value="{{ old('gender1') }}"></td>
-                      <td><input type="text" class="form-control" name="table_number1" value="{{ old('table_number1') }}"></td>
-                      <td><input type="text" class="form-control" name="amount1" value="{{ old('amount1') }}"></td>
-                      <td><input type="text" class="form-control" name="service1" value="{{ old('service1') }}"></td>
-                      <td><input type="text" class="form-control" name="staff1" value="{{ old('staff1') }}"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" class="form-control" name="classification2" value="{{ old('classification2') }}"></td>
-                    <td>2</td>
-                    <td><input type="time" class="form-control" name="time2" value="{{ old('time2') }}"></td>
-                    <td><input type="text" class="form-control" name="visitor2" value="{{ old('visitor2') }}"></td>
-                    <td><input type="text" class="form-control" name="clientlist2" value="{{ old('clientlist2') }}"></td>
-                    <td><input type="text" class="form-control" name="customer_name2" value="{{ old('customer_name2') }}"></td>
-                    <td><input type="text" class="form-control" name="gender2" value="{{ old('gender2') }}"></td>
-                    <td><input type="text" class="form-control" name="table_number2" value="{{ old('table_number2') }}"></td>
-                    <td><input type="text" class="form-control" name="amount2" value="{{ old('amount2') }}"></td>
-                    <td><input type="text" class="form-control" name="service2" value="{{ old('service2') }}"></td>
-                    <td><input type="text" class="form-control" name="staff2" value="{{ old('staff2') }}"></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>3</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>4</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>5</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>6</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>7</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>8</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>9</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>10</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
+                @for ($i = 0; $i < 10; $i++)
+                <tr>
+                    <td><input type="text" class="form-control" name="classification{{ $i + 1 }}" value="{{ old('classification') }}"></td>
+                    <td>{{ $i + 1 }}</td>
+                    <td><input type="time" class="form-control" name="time{{ $i + 1 }}" value="{{ old('time') }}"></td>
+                    <td><input type="text" class="form-control" name="visitor{{ $i + 1 }}" value="{{ old('visitor') }}"></td>
+                    <td><input type="text" class="form-control" name="clientlist{{ $i + 1 }}" value="{{ old('clientlist') }}"></td>
+                    <td><input type="text" class="form-control" name="customer_name{{ $i + 1 }}" value="{{ old('customer_name') }}"></td>
+                    <td><input type="text" class="form-control" name="gender{{ $i + 1 }}" value="{{ old('gender') }}"></td>
+                    <td><input type="text" class="form-control" name="table_number{{ $i + 1 }}" value="{{ old('table_number') }}"></td>
+                    <td><input type="text" class="form-control" name="amount{{ $i + 1 }}" value="{{ old('amount') }}"></td>
+                    <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value="{{ old('service') }}"></td>
+                    <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value="{{ old('staff') }}"></td>
+                </tr>
+
+                @endfor
+
+
               </tbody>
           </table>
 
           </div>
           </div>
-
-
-
 
 
           <div class="form-group row">

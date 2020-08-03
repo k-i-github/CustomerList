@@ -52,25 +52,21 @@
           </tr>
       </thead>
       <tbody>
-        @foreach($list_dtls as $list_dtl)
+        @for ($i = 0; $i < count($list_dtls); $i++)
           <tr>
-              <td>{{ $list_dtl->classification }}</td>
-              <td>1</td>
-              <td>{{ $list_dtl->time }}</td>
-              <td>{{ $list_dtl->visitor }}</td>
-              <td>{{ $list_dtl->clientlist }}</td>
-              <td>{{ $list_dtl->customer_name }}</td>
-              <td>{{ $list_dtl->gender }}</td>
-              <td>{{ $list_dtl->table_number }}</td>
-              <td>{{ $list_dtl->amount }}</td>
-              <td>{{ $list_dtl->service }}</td>
-              <td>{{ $list_dtl->staff }}</td>
+              <td>{{ $list_dtls[$i]->classification }}</td>
+              <td>{{ $i + 1 }}</td>
+              <td>{{ $list_dtls[$i]->time }}</td>
+              <td>{{ $list_dtls[$i]->visitor }}</td>
+              <td>{{ $list_dtls[$i]->clientlist }}</td>
+              <td>{{ $list_dtls[$i]->customer_name }}</td>
+              <td>{{ $list_dtls[$i]->gender }}</td>
+              <td>{{ $list_dtls[$i]->table_number }}</td>
+              <td>{{ $list_dtls[$i]->amount }}</td>
+              <td>{{ $list_dtls[$i]->service }}</td>
+              <td>{{ $list_dtls[$i]->staff }}</td>
           </tr>
-
-        @endforeach
-
-
-
+        @endfor
       </tbody>
   </table>
 
