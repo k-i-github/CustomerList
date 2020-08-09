@@ -113,7 +113,6 @@ class CustomerController extends Controller
       $this->validate($request, List_dtls::$rules);
       $i = 1;
 
-
       for ($i = 1; $i <= 10; $i++){
         // 上記で登録されたHEDのIDをDTLテーブルのlistHED idに登録する
         $list_dtls = new List_dtls;
@@ -134,7 +133,6 @@ class CustomerController extends Controller
 
           $list_dtls->save();
         }
-
       }
 
       //$list_dtls->fill($form);
@@ -175,34 +173,44 @@ class CustomerController extends Controller
       return view('admin.customer.list.edit', ['list_heds_form' => $list_heds, 'list_dtls_form' => $list_dtls, ]);
     }
 
-    public function li_update(Request $request)
-    {
-      $this->validate($request, List_dtls::$rules);
-      $list_heds = List_heds::findOrFail($id);
-    //  $list_heds = List_heds::find($request->id);
 
-    //dtl削除を作る
+     public function li_update(Request $request)
+     {
+       $list_heds = List_heds::findOrFail($request->id);
+       //dtl削除を作る
+       $list_dtls = List_dtls::where('list_hed_id', $request->id);
+       $list_dtls->delete();
 
-    //削除後登録
-      $list_heds_form = $request->all();
-      $list_dtls_form = $request->all();
+       //削除後登録
+       $form = $request->all();
+       $list_heds->list_date = $form['list_date'];
+       $list_insert_id = $list_heds->id;
+       $this->validate($request, List_dtls::$rules);
+       $i = 1;
 
-      $heds_image = $request->all();
-      if (isset($heds_image['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $list_heds->image_path = basename($path);
-        unset($heds_image['image']);
-      } elseif (isset($request->remove)) {
-        $list_heds->image_path = null;
-        unset($heds_image['remove']);
-      }
+       for ($i = 1; $i <= 10; $i++){
+         $list_dtls = new List_dtls;
+         $list_dtls->list_hed_id = $list_insert_id;
 
-      unset($list_heds_form['_token']);
-      unset($list_dtls_form['_token']);
+         if ($form['visitor'. $i] != ""){
+           $list_dtls->classification = $form['classification'. $i];
+           $list_dtls->time = $form['time'. $i];
+           $list_dtls->visitor = $form['visitor'. $i];
+           $list_dtls->clientlist = $form['clientlist'. $i];
+           $list_dtls->customer_name = $form['customer_name'. $i];
+           $list_dtls->gender = $form['gender'. $i];
+           $list_dtls->table_number = $form['table_number'. $i];
+           $list_dtls->amount = $form['amount'. $i];
+           $list_dtls->service = $form['service'. $i];
+           $list_dtls->staff = $form['staff'. $i];
 
-      $list_heds->fill($list_heds_form)->save();
-      $list_dtls->fill($list_dtls_form)->save();
-
-      return redirect('admin/customer/list/index', ['list_heds' => list_heds::findOrFail($id)]);
-    }
+           /*$list_dtls_form = $request->all();
+           unset($list_dtls_form['_token']);
+           $list_dtls->fill($list_dtls_form)->save(); */
+          $list_dtls->save();
+         }
+         
+         return redirect('admin/customer/list/index');
+     }
+   }
 }

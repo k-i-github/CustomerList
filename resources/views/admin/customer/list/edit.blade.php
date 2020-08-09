@@ -21,10 +21,8 @@
               <input type="date" class="form-control" name="list_date" value="{{ $list_heds_form->list_date }}">
             </div>
           </div>
-
           <div class="form-group row">
           <div class="table-responsive">
-
             <table class="table table-bordered">
               <thead>
                   <tr>
@@ -42,16 +40,12 @@
                   </tr>
               </thead>
               <tbody>
-
-
                 @for ($i = 0; $i < 10; $i++)
-
                 @if ( count($list_dtls_form) >= $i + 1 )
-
                   <tr>
                       <td><input type="text" class="form-control" name="classification{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->classification }}"></td>
                       <td>{{ $i + 1 }}</td>
-                      <td><input type="text" class="form-control" name="time{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->time }}"></td>
+                      <td><input type="time" class="form-control" name="time{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->time }}"></td>
                       <td><input type="text" class="form-control" name="visitor{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->visitor }}"></td>
                       <td><input type="text" class="form-control" name="clientlist{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->clientlist }}"></td>
                       <td><input type="text" class="form-control" name="customer_name{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->customer_name }}"></td>
@@ -60,14 +54,12 @@
                       <td><input type="text" class="form-control" name="amount{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->amount }}"></td>
                       <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->service }}"></td>
                       <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value="{{ $list_dtls_form[$i]->staff }}"></td>
-
-
                   </tr>
                   @else
                   <tr>
                       <td><input type="text" class="form-control" name="classification{{ $i + 1 }}" value=""></td>
                       <td>{{ $i + 1 }}</td>
-                      <td><input type="text" class="form-control" name="time{{ $i + 1 }}" value=""></td>
+                      <td><input type="time" class="form-control" name="time{{ $i + 1 }}" value=""></td>
                       <td><input type="text" class="form-control" name="visitor{{ $i + 1 }}" value=""></td>
                       <td><input type="text" class="form-control" name="clientlist{{ $i + 1 }}" value=""></td>
                       <td><input type="text" class="form-control" name="customer_name{{ $i + 1 }}" value=""></td>
@@ -76,19 +68,13 @@
                       <td><input type="text" class="form-control" name="amount{{ $i + 1 }}" value=""></td>
                       <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value=""></td>
                       <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value=""></td>
-
-
                   </tr>
                   @endif
                   @endfor
-                  
-
               </tbody>
           </table>
-
           </div>
           </div>
-
           <div class="form-group row">
             <label class="col-md-2">画像変更</label>
               <div class="col-md-10">
