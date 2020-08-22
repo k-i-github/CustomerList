@@ -51,6 +51,7 @@
                   <th width="10%">分類</th>
                   <th width="20%">担当</th>
                   <th width="20%">ボトル</th>
+                  <th width="20%">詳細</th>
                 </tr>
               </thead>
               <tbody>

@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('customer/list/edit', 'Admin\CustomerController@li_edit');
   Route::post('customer/list/edit', 'Admin\CustomerController@li_update');
 
-  Route::get('customer/delete', 'Admin\CustomerController@delete');
+//  Route::get('customer/delete', 'Admin\CustomerController@delete');
 
 });
 

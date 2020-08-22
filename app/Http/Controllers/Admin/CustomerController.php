@@ -182,16 +182,27 @@ class CustomerController extends Controller
        $list_dtls->delete();
 
        //削除後登録
+       $list_heds->edited_at = Carbon::now();
+
+       if (isset($form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $list_heds->image_path = basename($path);
+      } else {
+        //$list_heds->image_path = null;
+        $list_heds->image_path = "test";
+      }
+
+
        $form = $request->all();
+    //   $list_dtls_form = $request->all();
        $list_heds->list_date = $form['list_date'];
        $list_insert_id = $list_heds->id;
        $this->validate($request, List_dtls::$rules);
-       $i = 1;
+
 
        for ($i = 1; $i <= 10; $i++){
          $list_dtls = new List_dtls;
          $list_dtls->list_hed_id = $list_insert_id;
-
          if ($form['visitor'. $i] != ""){
            $list_dtls->classification = $form['classification'. $i];
            $list_dtls->time = $form['time'. $i];
@@ -206,11 +217,11 @@ class CustomerController extends Controller
 
            /*$list_dtls_form = $request->all();
            unset($list_dtls_form['_token']);
-           $list_dtls->fill($list_dtls_form)->save(); */
-          $list_dtls->save();
+           $list_dtls->fill($list_dtls_form)->save();
+           $list_dtls->fill($form)->save(); */
+           $list_dtls->save();
          }
-         
-         return redirect('admin/customer/list/index');
      }
+      return redirect('admin/customer/list/index');
    }
 }

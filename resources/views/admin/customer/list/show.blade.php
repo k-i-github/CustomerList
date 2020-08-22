@@ -27,7 +27,7 @@
 
   <div class="form-group row">
     <label class="col-md-2">日付</label>
-    <div class="col-md-2">
+    <div class="col-md-4">
       <input type="date" class="form-control" name="list_date" value="{{ old('list_date') }}">
     </div>
   </div>

@@ -68,10 +68,7 @@
                     <td><input type="text" class="form-control" name="service{{ $i + 1 }}" value="{{ old('service') }}"></td>
                     <td><input type="text" class="form-control" name="staff{{ $i + 1 }}" value="{{ old('staff') }}"></td>
                 </tr>
-
                 @endfor
-
-
               </tbody>
           </table>
 
