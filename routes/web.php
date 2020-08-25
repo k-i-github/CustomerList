@@ -11,8 +11,14 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
+});
+*/
+
+Route::get('/', function () {
+    return view('admin/customer/menu');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {

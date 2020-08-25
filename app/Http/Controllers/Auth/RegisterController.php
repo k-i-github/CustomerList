@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'admin/customer/menu'; //ログイン後 top画面
 
     /**
      * Create a new controller instance.
