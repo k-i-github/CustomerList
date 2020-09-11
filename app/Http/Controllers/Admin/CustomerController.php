@@ -46,9 +46,9 @@ class CustomerController extends Controller
       $cond_name = $request->cond_name;
       if ($cond_name != '') {
         //検索されたら検索結果を取得する
-        $posts = Customer::where('name', $cond_name)->get();
+        $posts = Customer::where('name', 'like', "%$cond_name%")->orderBy('id', 'desc')->get();
       } else {
-        $posts = Customer::all();
+        $posts = Customer::orderBy('id', 'desc')->get();
       }
       return view('admin.customer.index', ['posts' => $posts, 'cond_name' => $cond_name]);
     }
@@ -145,9 +145,9 @@ class CustomerController extends Controller
     {
       $cond_date = $request->cond_date;
       if ($cond_date != '') {
-        $posts = List_heds::where('list_date', $cond_date)->get();
+        $posts = List_heds::where('list_date', 'like', "%$cond_date%")->orderBy('id','desc')->get();
       } else {
-        $posts = List_heds::all();
+        $posts = List_heds::orderBy('id','desc')->get();
       }
       return view ('admin.customer.list.index',  ['posts' => $posts, 'cond_date' => $cond_date]);
     }

@@ -51,24 +51,20 @@
               </div>
             </div>
 
-          <div class="form-group row">
-            <label class="col-md-2" for="classification">分類</label>
-              <div class="col-md-10">
-                <div class="dropdown dropright">
-                  <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" name="classification"
-                          aria-haspopup="true" aria-expanded="false">分類</button>
-                  <div class="dropdown-menu" aria-labelledby="dropdown1">
-                    <a class="dropdown-item" href="#">A</a>
-                    <a class="dropdown-item" href="#">B</a>
-                    <a class="dropdown-item" href="#">C</a>
-                    <a class="dropdown-item" href="#">D</a>
-                    <a class="dropdown-item" href="#">E</a>
-                    <a class="dropdown-item" href="#">F</a>
-                    <a class="dropdown-item" href="#">G</a>
-                  </div>
+            <div class="form-group row">
+              <label class="col-md-2">分類</label>
+                <div class="col-md-10">
+                  <select name="classification" class="custom-select">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                  </select>
                 </div>
               </div>
-            </div>
 
             <div class="form-group row">
               <label class="col-md-2" for="staff">担当者</label>
